@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate} from 'react-router-dom';
+import GoogleAuth from '../components/GoogleAuth.jsx';
 
 function SignUp() {
   const [formData, setFormData] = useState({})
@@ -46,6 +47,7 @@ function SignUp() {
         <input onChange={handleChange} type='password' placeholder='password' className='border p-3 rounded-lg' id='password' /> 
         <input  onChange={handleChange}type='email' placeholder='email' className='border p-3 rounded-lg' id='email' />
         <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase disabled:opacity-80 hover:bg-opacity-95'>{loading ? 'Loading..' :'Sign Up'}</button>       
+        <GoogleAuth />
       </form>
       <div className='flex gap-2 mt-5'>
         <p>Already an user ?</p>
