@@ -16,6 +16,9 @@ import {
   deleteUserStart,
   deleteUserFailure,
   deleteUserSuccess,
+  signoutUserStart,
+  signoutUserFailure,
+  signoutUserSuccess,
 } from "../redux/user/userSlice.js";
 
 function Profile() {
@@ -51,6 +54,20 @@ function Profile() {
     }
   }
 
+  const handleSignOut = async()=>{
+    try {
+      dispatch(signoutUserStart());
+      const res=await fetch("/api/auth/signout")
+      const data=await res.json();
+      if(data.success===false){
+        dispatch(signoutUserFailure(data.message))
+        return
+      }
+      dispatch(signoutUserSuccess(data))
+    } catch (error) {
+      dispatch(signoutUserFailure(data.message))
+    }
+  }
   const handleFileUpload = (file) => {
     const storage = getStorage(app);
     const fileName = new Date().getTime() + file.name;
@@ -164,7 +181,7 @@ function Profile() {
       </form>
       <div className="flex justify-between mt-5">
         <span className="text-red-700 cursor-pointer" onClick={handleDeleteUser}>Delete Account</span>
-        <span className="text-red-700 cursor-pointer">Signout</span>
+        <span className="text-red-700 cursor-pointer" onClick={handleSignOut}>Signout</span>
       </div>
       <p className="text-red-700 mt-5">{error ? error : ''}</p>
       <p className="text-green-700"> {updateSuccess ? 'User is updated' : '' }</p>
