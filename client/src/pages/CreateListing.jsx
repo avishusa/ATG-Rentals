@@ -1,7 +1,6 @@
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import React, { useState } from 'react'
 import { app } from '../firebase';
-import { current } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -124,7 +123,7 @@ function CreateListing() {
                 },
                 body:JSON.stringify({
                     ...formData,
-                userRef:updateCurrentUser._id
+                userRef:currentUser._id
             }),
             })
             const data = await res.json();
@@ -212,7 +211,7 @@ function CreateListing() {
                </div>
             ))
         }
-        <button disabled={loading || uploading} type='button' className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-70'>{loading?"Processing":"Create Listing"}</button>
+        <button disabled={loading || uploading} type='submit' className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-70'>{loading?"Processing":"Create Listing"}</button>
        {error && <p className='text-red-700 text-sm'>{error}</p>}
         </div>
     </form>
