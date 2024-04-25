@@ -43,7 +43,7 @@ try {
 }
 
 export const getUserListings = async(req,res,next)=>{
-  if(req.user.id!==req.params.id){
+  if(req.user.id===req.params.id){
     try {
       const listings = await Listing.find({userRef:req.params.id})
       res.status(200).json(listings )
