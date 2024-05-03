@@ -13,7 +13,7 @@ const firebaseConfig = {
   storageBucket: "atg-rentals.appspot.com",
   messagingSenderId: "489436313239",
   appId: "1:489436313239:web:78d4145d4830dfcc0f5bd2",
-  measurementId: "G-8HS3C3FRST"
+  measurementId: "G-8HS3C3FRST",
 };
 
 // Initialize Firebase
