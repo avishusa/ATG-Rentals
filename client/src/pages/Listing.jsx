@@ -14,6 +14,7 @@ import {
   FaParking,
   FaShare,
 } from 'react-icons/fa';
+import Contact from '../components/Contact';
 
 
 export default function Listing() {
@@ -145,6 +146,7 @@ export default function Listing() {
           </div>
         </div>
       )}
+      {contact && <Contact listing={listing}/>}
     </main>
   );
 }
