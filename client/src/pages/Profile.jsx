@@ -126,7 +126,7 @@ function Profile() {
   const handleShowListings = async () => {
     try {
       setShowListingsError(false);
-      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const res = await fetch(`/api/user/listing/${currentUser._id}`);
       const data = await res.json();
       if (data.success === false) {
         setShowListingsError(true);
@@ -255,7 +255,7 @@ function Profile() {
               className="border rounded-lg p-3 flex justify-between items-center gap-4"
               key={listing._id}
             >
-              <Link to={`/listings/${listing._id}`}>
+              <Link to={`/listing/${listing._id}`}>
                 <img
                   src={listing.imageUrls[0]}
                   alt="Listing Cover"
@@ -264,7 +264,7 @@ function Profile() {
               </Link>
               <Link
                 className="text-slate-700 font-semibold flex-1 hover:underline truncate"
-                to={`/listings/${listing._id}`}
+                to={`/listing/${listing._id}`}
               >
                 <p>{listing.name}</p>
               </Link>
