@@ -17,7 +17,7 @@ function CreateListing() {
     name: "",
     description: "",
     address: "",
-    type: "rent",
+    type: "",
     bedrooms: 1,
     bathrooms: 1,
     regularPrice: 50,
@@ -279,7 +279,7 @@ function CreateListing() {
                 type="number"
                 id="regularPrice"
                 min="50"
-                max="1000"
+                max="10000000000"
                 required
               />
               <div className="flex flex-col items-center">
@@ -296,7 +296,7 @@ function CreateListing() {
                   type="number"
                   id="discountPrice"
                   min="0"
-                  max="1000"
+                  max="10000000000"
                   required
                 />
                 <div className="flex flex-col items-center">
