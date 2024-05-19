@@ -94,7 +94,7 @@ function CreateListing() {
   };
 
   const handleChange = (e) => {
-    if (e.target.id === "sale" || e.target.value === "rent") {
+    if (e.target.id === "sale" || e.target.id === "rent") {
       setFormData({
         ...formData,
         type: e.target.id,
