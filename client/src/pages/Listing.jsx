@@ -95,10 +95,21 @@ export default function Listing() {
                 : listing.regularPrice.toLocaleString('en-US')}
               {listing.type === 'rent' && ' / month'}
             </p>
-            <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
+            {/* <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
               <FaMapMarkerAlt className='text-green-700' />
               {listing.address}
-            </p>
+            </p> */}
+            <p className='flex items-center mt-6 gap-2 text-slate-600 text-sm'>
+  <FaMapMarkerAlt className='text-green-700' />
+  <a
+    href={`https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=${encodeURIComponent(listing.address)}`}
+    target='_blank'
+    rel='noopener noreferrer'
+    className='text-blue-600 hover:underline'
+  >
+    {listing.address}
+  </a>
+</p>
             <div className='flex gap-4'>
               <p className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
                 {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
